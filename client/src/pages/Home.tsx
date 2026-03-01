@@ -1,10 +1,10 @@
 import { Link } from "wouter";
 import { domains, getStats } from "@/data/standards";
 
-const LOGO_WAHAH = "https://d2xsxph8kpxj0f.cloudfront.net/310519663105235158/JM8CgdD9UBMvgLbHukHikS/شعارالواحة_dff1df94.png";
-const LOGO_MOE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663105235158/JM8CgdD9UBMvgLbHukHikS/شعارالوزارة_99782cc0.png";
-const LOGO_ETEC = "https://d2xsxph8kpxj0f.cloudfront.net/310519663105235158/JM8CgdD9UBMvgLbHukHikS/شعارالهيئة_d0b34852.png";
-const SEAL_ACCREDITED = "https://d2xsxph8kpxj0f.cloudfront.net/310519663105235158/JM8CgdD9UBMvgLbHukHikS/ختمتميزالرقميللاعتمادالكامل_64972dcf.png";
+const LOGO_WAHAH = "https://d2xsxph8kpxj0f.cloudfront.net/310519663105235158/JM8CgdD9UBMvgLbHukHikS/شعارالواحة_6d6a2dd9.png";
+const LOGO_MOE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663105235158/JM8CgdD9UBMvgLbHukHikS/شعارالوزارة_6a3d758e.png";
+const LOGO_ETEC = "https://d2xsxph8kpxj0f.cloudfront.net/310519663105235158/JM8CgdD9UBMvgLbHukHikS/شعارالهيئة_927b0c81.png";
+const SEAL_ACCREDITED = "https://d2xsxph8kpxj0f.cloudfront.net/310519663105235158/JM8CgdD9UBMvgLbHukHikS/ختمتميزالرقميللاعتمادالكامل_28ea9522.png";
 
 export default function Home() {
   const stats = getStats();
@@ -13,32 +13,40 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-teal-50" dir="rtl">
 
       {/* Top Bar — الشعارات الثلاثة */}
-      <div className="bg-white border-b border-slate-100">
+      <div className="bg-white border-b border-slate-100 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-4 flex-wrap">
-          {/* شعار الواحة */}
           <img src={LOGO_WAHAH} alt="مدارس واحة جدة الأهلية" className="h-14 object-contain" />
-          {/* شعار وزارة التعليم */}
-          <img src={LOGO_MOE} alt="وزارة التعليم" className="h-12 object-contain" />
-          {/* شعار الهيئة */}
-          <img src={LOGO_ETEC} alt="هيئة تقويم التعليم والتدريب" className="h-12 object-contain" />
+          <div className="text-center hidden sm:block">
+            <p className="text-xs text-slate-400 font-medium">مدارس واحة جدة الأهلية</p>
+            <p className="text-xs text-teal-600 font-bold">طلابنا اليوم.. قادة الغد</p>
+          </div>
+          <div className="flex items-center gap-6">
+            <img src={LOGO_MOE} alt="وزارة التعليم" className="h-12 object-contain" />
+            <img src={LOGO_ETEC} alt="هيئة تقويم التعليم والتدريب" className="h-12 object-contain" />
+          </div>
         </div>
       </div>
 
       {/* Header */}
-      <header className="bg-gradient-to-l from-teal-700 to-teal-900 shadow-md">
+      <header className="bg-gradient-to-l from-teal-700 to-teal-900 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex items-center justify-between gap-4 flex-wrap">
           <div>
             <h1 className="text-2xl md:text-3xl font-extrabold text-white leading-tight">
-              بوابة الجودة المدرسية
+              دليلك للتميز والاعتماد المدرسي
             </h1>
-            <p className="text-teal-200 text-sm mt-0.5">
-              دليلك التفاعلي لمعايير التقويم والاعتماد المدرسي — مدارس واحة جدة الأهلية
+            <p className="text-teal-200 text-sm mt-1">
+              مساهمة من مدارس واحة جدة الأهلية لنقل أثر التميز
             </p>
           </div>
           <div className="flex items-center gap-3">
-            <span className="bg-white/10 text-white text-xs px-3 py-1.5 rounded-full border border-white/20 font-medium">
-              نسعى لنقل أثر التميز ✦
-            </span>
+            <a
+              href="https://wj.edu.sa/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white/10 hover:bg-white/20 text-white text-xs px-4 py-2 rounded-full border border-white/20 font-medium transition-colors duration-200"
+            >
+              🌐 wj.edu.sa
+            </a>
           </div>
         </div>
       </header>
@@ -48,21 +56,29 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20">
           <div className="flex flex-col md:flex-row items-center gap-10">
             <div className="flex-1 text-center md:text-right">
-              <div className="inline-flex items-center gap-2 bg-teal-100 text-teal-800 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-teal-200">
-                <span>✨</span>
-                <span>دليلك التفاعلي الشامل لمعايير الاعتماد المدرسي</span>
+              {/* تنويه رسمي */}
+              <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-8 text-right">
+                <p className="text-amber-800 text-sm leading-relaxed">
+                  <span className="font-bold text-amber-900">تنويه: </span>
+                  هذه اجتهادات تم بناؤها على الوثيقة الرسمية لمعايير التقويم والاعتماد المدرسي
+                  الصادرة عن هيئة تقويم التعليم والتدريب، وهي مساهمة من
+                  <span className="font-bold"> مدارس واحة جدة الأهلية </span>
+                  لنقل أثر التميز.
+                </p>
               </div>
+
               <h2 className="text-4xl md:text-5xl font-extrabold text-slate-800 mb-6 leading-tight">
-                افهم معايير التقويم
-                <span className="text-teal-600 block mt-1">بطريقة تفاعلية وعملية</span>
+                معايير التقويم والاعتماد
+                <span className="text-teal-600 block mt-1">في متناول يدك</span>
               </h2>
               <p className="text-lg text-slate-600 mb-10 leading-relaxed">
-                منصة متكاملة تشرح مجالات ومعايير ومؤشرات التقويم والاعتماد المدرسي بأسلوب مبسط وتفاعلي، مع أبرز الأفكار التوجيهية وأدوات التقويم لكل مؤشر.
+                مرجع شامل يضم المجالات الأربعة و{stats.totalStandards} معياراً و{stats.totalIndicators} مؤشراً،
+                مع خرائط الطريق التفصيلية وأدوات التقويم والوثائق المطلوبة لكل مؤشر.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                 <Link href="/domains">
                   <button className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-200 transform hover:-translate-y-0.5">
-                    ابدأ الاستكشاف ←
+                    استعرض المجالات ←
                   </button>
                 </Link>
                 <Link href="/overview">
@@ -77,7 +93,7 @@ export default function Home() {
               <img
                 src={SEAL_ACCREDITED}
                 alt="ختم تميز — معتمد"
-                className="w-44 h-44 md:w-56 md:h-56 object-contain drop-shadow-xl"
+                className="w-44 h-44 md:w-60 md:h-60 object-contain drop-shadow-xl"
               />
             </div>
           </div>
@@ -107,7 +123,7 @@ export default function Home() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
         <div className="text-center mb-10">
           <h3 className="text-2xl font-bold text-slate-800 mb-2">المجالات الأربعة</h3>
-          <p className="text-slate-500">اضغط على أي مجال للاستكشاف التفصيلي</p>
+          <p className="text-slate-500">اختر المجال للاطلاع على معاييره ومؤشراته وخرائط الطريق</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {domains.map((domain) => {
@@ -162,12 +178,23 @@ export default function Home() {
           </div>
           {/* معلومات الإعداد */}
           <div className="text-center space-y-2">
-            <p className="text-white font-bold text-lg">بوابة الجودة المدرسية</p>
-            <p className="text-teal-300 text-sm">مستندة إلى وثيقة معايير التقويم والاعتماد المدرسي 2026</p>
+            <p className="text-white font-bold text-lg">دليلك للتميز والاعتماد المدرسي</p>
+            <p className="text-teal-300 text-sm">
+              مستند إلى الوثيقة الرسمية لمعايير التقويم والاعتماد المدرسي
+              الصادرة عن هيئة تقويم التعليم والتدريب
+            </p>
             <div className="mt-4 pt-4 border-t border-teal-700 space-y-1">
               <p className="text-teal-200 text-sm font-semibold">إعداد</p>
-              <p className="text-white font-bold">د. سليمان تويج</p>
+              <p className="text-white font-bold text-base">د. سليمان تويج</p>
               <p className="text-teal-300 text-sm">مسؤول الجودة والتميز بالمدارس</p>
+              <a
+                href="https://wj.edu.sa/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block text-teal-400 hover:text-white text-sm mt-2 transition-colors duration-200"
+              >
+                🌐 wj.edu.sa
+              </a>
               <p className="text-teal-400 text-xs mt-3">
                 © جميع حقوق الملكية محفوظة — مدارس واحة جدة الأهلية {new Date().getFullYear()}
               </p>

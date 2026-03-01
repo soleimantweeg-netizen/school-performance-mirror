@@ -26,11 +26,22 @@ describe("بيانات المعايير", () => {
     });
   });
 
-  it("يجب أن يكون لكل مؤشر إضاءات توجيهية", () => {
+  it("يجب أن يكون لكل مؤشر خارطة طريق", () => {
     domains.forEach((domain) => {
       domain.standards.forEach((standard) => {
         standard.indicators.forEach((indicator) => {
-          expect(indicator.illuminations.length).toBeGreaterThan(0);
+          expect(indicator.roadmap).toBeDefined();
+          expect(indicator.roadmap.length).toBeGreaterThan(0);
+        });
+      });
+    });
+  });
+
+  it("يجب أن يكون لكل مؤشر وثائق مطلوبة", () => {
+    domains.forEach((domain) => {
+      domain.standards.forEach((standard) => {
+        standard.indicators.forEach((indicator) => {
+          expect(indicator.documents).toBeDefined();
         });
       });
     });
