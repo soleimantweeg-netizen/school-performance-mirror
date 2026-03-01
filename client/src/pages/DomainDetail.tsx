@@ -2,6 +2,8 @@ import { Link, useParams } from "wouter";
 import { useState } from "react";
 import { domains } from "@/data/standards";
 
+const LOGO_WAHAH = "https://d2xsxph8kpxj0f.cloudfront.net/310519663105235158/JM8CgdD9UBMvgLbHukHikS/شعارالواحة_dff1df94.png";
+
 export default function DomainDetail() {
   const { domainId } = useParams<{ domainId: string }>();
   const domain = domains.find((d) => d.id === domainId);
@@ -26,17 +28,23 @@ export default function DomainDetail() {
   return (
     <div className="min-h-screen bg-slate-50" dir="rtl">
       {/* Header */}
-      <header className="bg-white shadow-sm border-b border-slate-200 sticky top-0 z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center gap-3 flex-wrap">
-          <Link href="/">
-            <button className="text-slate-500 hover:text-teal-600 text-sm">الرئيسية</button>
-          </Link>
-          <span className="text-slate-300">›</span>
-          <Link href="/domains">
-            <button className="text-slate-500 hover:text-teal-600 text-sm">المجالات</button>
-          </Link>
-          <span className="text-slate-300">›</span>
-          <span className={`text-sm font-bold ${domain.color}`}>{domain.title}</span>
+      <header className="bg-teal-900 shadow-md sticky top-0 z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-3 flex-wrap">
+          <div className="flex items-center gap-3">
+            <img src={LOGO_WAHAH} alt="مدارس واحة جدة" className="h-9 object-contain brightness-0 invert" />
+            <div className="flex items-center gap-2 text-sm">
+              <Link href="/">
+                <button className="text-teal-200 hover:text-white">الرئيسية</button>
+              </Link>
+              <span className="text-teal-600">›</span>
+              <Link href="/domains">
+                <button className="text-teal-200 hover:text-white">المجالات</button>
+              </Link>
+              <span className="text-teal-600">›</span>
+              <span className="text-white font-bold">{domain.title}</span>
+            </div>
+          </div>
+          <span className="text-teal-300 text-xs hidden md:block">بوابة الجودة المدرسية — مدارس واحة جدة الأهلية</span>
         </div>
       </header>
 
@@ -205,8 +213,8 @@ function IndicatorCard({
       {expanded && (
         <div className={`mt-4 mr-12 ${domainBg} rounded-xl p-5 border border-slate-100`}>
           <div className="flex items-center gap-2 mb-4">
-            <span className="text-lg">💡</span>
-            <h4 className={`font-bold ${domainColor}`}>الإضاءات التوجيهية</h4>
+            <span className="text-lg">🔍</span>
+            <h4 className={`font-bold ${domainColor}`}>عمق المعنى — ماذا يعني هذا المؤشر؟</h4>
           </div>
           <ul className="space-y-3">
             {indicator.illuminations.map((ill: string, i: number) => (
