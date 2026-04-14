@@ -21,7 +21,6 @@ export default function Home() {
             <p className="text-xs text-teal-600 font-bold">طلابنا اليوم.. قادة الغد</p>
           </div>
           <div className="flex items-center gap-6">
-            <img src={LOGO_MOE} alt="وزارة التعليم" className="h-12 object-contain" />
             <img src={LOGO_ETEC} alt="هيئة تقويم التعليم والتدريب" className="h-12 object-contain" />
           </div>
         </div>
@@ -173,7 +172,6 @@ export default function Home() {
           {/* الشعارات في الفوتر */}
           <div className="flex flex-wrap items-center justify-center gap-8 mb-8 pb-8 border-b border-teal-700">
             <img src={LOGO_WAHAH} alt="مدارس واحة جدة الأهلية" className="h-14 object-contain brightness-0 invert opacity-80" />
-            <img src={LOGO_MOE} alt="وزارة التعليم" className="h-10 object-contain brightness-0 invert opacity-80" />
             <img src={LOGO_ETEC} alt="هيئة تقويم التعليم والتدريب" className="h-10 object-contain brightness-0 invert opacity-80" />
           </div>
           {/* معلومات الإعداد */}
